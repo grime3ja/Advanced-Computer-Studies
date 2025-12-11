@@ -1,0 +1,6 @@
+C:\Users\Jacob\source\repos\Battleship\Torpedo\bin\Debug\Torpedo.dll
+C:\Users\Jacob\source\repos\Battleship\Torpedo\bin\Debug\Torpedo.pdb
+C:\Users\Jacob\source\repos\Battleship\Torpedo\obj\Debug\Torpedo.csproj.AssemblyReference.cache
+C:\Users\Jacob\source\repos\Battleship\Torpedo\obj\Debug\Torpedo.csproj.CoreCompileInputs.cache
+C:\Users\Jacob\source\repos\Battleship\Torpedo\obj\Debug\Torpedo.dll
+C:\Users\Jacob\source\repos\Battleship\Torpedo\obj\Debug\Torpedo.pdb

@@ -1,0 +1,16 @@
+C:\Users\Jacob\source\repos\Slots\Slots\bin\Debug\net5.0-windows\Spinner.deps.json
+C:\Users\Jacob\source\repos\Slots\Slots\bin\Debug\net5.0-windows\Spinner.dll
+C:\Users\Jacob\source\repos\Slots\Slots\bin\Debug\net5.0-windows\ref\Spinner.dll
+C:\Users\Jacob\source\repos\Slots\Slots\bin\Debug\net5.0-windows\Spinner.pdb
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\Spinner.csproj.AssemblyReference.cache
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\SpinnerControl.baml
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\SpinnerControl.g.cs
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\Spinner_MarkupCompile.cache
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\Spinner.g.resources
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\Spinner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\Spinner.AssemblyInfoInputs.cache
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\Spinner.AssemblyInfo.cs
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\Spinner.csproj.CoreCompileInputs.cache
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\Spinner.dll
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\ref\Spinner.dll
+C:\Users\Jacob\source\repos\Slots\Slots\obj\Debug\net5.0-windows\Spinner.pdb

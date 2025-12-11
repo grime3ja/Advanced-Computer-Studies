@@ -1,0 +1,8 @@
+C:\Users\Jacob\source\repos\Battleship\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Jacob\source\repos\Battleship\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Jacob\source\repos\Battleship\ClassLibrary1\bin\Debug\Torpedo.dll
+C:\Users\Jacob\source\repos\Battleship\ClassLibrary1\bin\Debug\Torpedo.pdb
+C:\Users\Jacob\source\repos\Battleship\ClassLibrary1\obj\Debug\Oceania.csproj.AssemblyReference.cache
+C:\Users\Jacob\source\repos\Battleship\ClassLibrary1\obj\Debug\Oceania.csproj.CoreCompileInputs.cache
+C:\Users\Jacob\source\repos\Battleship\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Jacob\source\repos\Battleship\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

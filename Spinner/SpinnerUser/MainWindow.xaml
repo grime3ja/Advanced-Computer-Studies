@@ -1,0 +1,57 @@
+﻿<Window x:Class="SpinnerUser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpinnerUser" xmlns:spinner="clr-namespace:Spinner;assembly=Spinner" xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+        mc:Ignorable="d"
+        Title="Craps Simulator" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="stake" Text="Stake" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center"/>
+        <spinner:SpinnerControl Name="moneys" Grid.Row="4" Grid.Column="1" DefaultValue="100" MaxValue="100000" MinValue="1" Increment="100"/>
+
+        <TextBlock Name="bet" Text="Bet" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center"/>
+        <spinner:SpinnerControl Name="loses" Grid.Row="4" Grid.Column="3" DefaultValue="100" MaxValue="100000" MinValue="1" Increment="100"/>
+
+        <TextBlock Name="goal" Text="Goal" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center"/>
+        <spinner:SpinnerControl Name="wins" Grid.Row="4" Grid.Column="5" DefaultValue="100" MaxValue="100000" MinValue="1" Increment="100"/>
+
+        <TextBox Name="sims" Text="Simulations Run" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"/>
+        <spinner:SpinnerControl Name="simulations" Grid.Row="2" Grid.Column="3" DefaultValue="1" MaxValue="100" MinValue="1" Increment="1"/>
+
+        <Label Name="won" Content="# Won: 0" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center"/>
+        <Label Name="lost" Content="# Lost: 0" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center"/>
+        <Label Name="percent" Content="Win %: 0%" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Center"/>
+
+        <Label Name="stakeAmount" Content="Money Left: " Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Label Name="lastRoll" Content="Last Roll: " Grid.Row="8" Grid.Column="3" VerticalAlignment="center" HorizontalAlignment="Center"/>
+        
+        <Label Name="result" Content="Result: " Grid.Row="9" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Button Name="run" Content="Run Simulations" Grid.Row="10" Grid.Column="3" Click="RunSimulation_Click"/>
+    </Grid>
+</Window>

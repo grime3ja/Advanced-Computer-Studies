@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\Oceania.csproj" />
+    <ProjectReference Include="..\Eurasia\Eurasia.csproj" />
+    <ProjectReference Include="..\Torpedo\Torpedo.csproj" />
+  </ItemGroup>
+
+</Project>

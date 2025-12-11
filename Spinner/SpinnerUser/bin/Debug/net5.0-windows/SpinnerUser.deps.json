@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "SpinnerUser/1.0.0": {
+        "dependencies": {
+          "Spinner": "1.0.0"
+        },
+        "runtime": {
+          "SpinnerUser.dll": {}
+        }
+      },
+      "Spinner/1.0.0": {
+        "runtime": {
+          "Spinner.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SpinnerUser/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Spinner/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

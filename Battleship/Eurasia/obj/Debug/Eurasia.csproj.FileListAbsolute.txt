@@ -1,0 +1,8 @@
+C:\Users\Jacob\source\repos\Battleship\Eurasia\bin\Debug\Eurasia.dll
+C:\Users\Jacob\source\repos\Battleship\Eurasia\bin\Debug\Eurasia.pdb
+C:\Users\Jacob\source\repos\Battleship\Eurasia\bin\Debug\Torpedo.dll
+C:\Users\Jacob\source\repos\Battleship\Eurasia\bin\Debug\Torpedo.pdb
+C:\Users\Jacob\source\repos\Battleship\Eurasia\obj\Debug\Eurasia.csproj.AssemblyReference.cache
+C:\Users\Jacob\source\repos\Battleship\Eurasia\obj\Debug\Eurasia.csproj.CoreCompileInputs.cache
+C:\Users\Jacob\source\repos\Battleship\Eurasia\obj\Debug\Eurasia.dll
+C:\Users\Jacob\source\repos\Battleship\Eurasia\obj\Debug\Eurasia.pdb

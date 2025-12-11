@@ -1,0 +1,1 @@
+## Slots machine simulator (Microsoft Visual Studio)

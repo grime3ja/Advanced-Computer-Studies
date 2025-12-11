@@ -1,0 +1,455 @@
+﻿<Window x:Class="Battleship.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Battleship"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Name="PlayTheGame" Content="Play Game" Width="75" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="4" Click="btnWarPeace_Click"/>
+        <Label Content="Eurasia" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" FontFamily="Arial" Margin="20 0 0 0"/>
+        <Label Content="Oceania" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" FontFamily="Arial" Margin="20 0 0 0"/>
+        <Label Name="whosTurn" Visibility ="Hidden" Content="" Grid.Row="4" Grid.Column="1" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" FontFamily="Arial"/>
+        <Label Name="whoWon" Content="" Grid.Row="4" Grid.Column="1" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" FontFamily="Arial" Visibility="Hidden"/>
+        <Label Name="lblShotAtEurasia" Grid.Row="1" Grid.Column="0" Content=""
+               FontSize="20" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Name="lblShotAtOceania" Grid.Row="3" Grid.Column="0" Content=""
+               FontSize="20" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Label Grid.Row="0" Grid.Column="2" Content="Sunken Ships"
+               FontSize="14" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="2" Content="Sunken Ships"
+               FontSize="14" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+
+        <Label Name="lblEurasiaSunk" Grid.Row="1" Grid.Column="2" Content=""
+               FontSize="14" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Name="lblOceaniaSunk" Grid.Row="3" Grid.Column="2" Content=""
+               FontSize="14" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Last Shot"
+               FontSize="14" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Last Shot"
+               FontSize="14" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+
+        <Label Name="lblEurasiaShot" Grid.Row="1" Grid.Column="0" Content=""
+               FontSize="14" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Name="lblOceaniaShot" Grid.Row="3" Grid.Column="0" Content=""
+               FontSize="14" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Button Name="playAgain" Grid.Row="5" Grid.Column="2" Content="Reset" Click="btnReset_Click" Height="30" Width="50" Visibility="Hidden"
+                Background="Red" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0" />
+        <Grid Name="EurasiaBoard" Grid.Row ="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="1" Grid.Column="1" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            
+            <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="2" Grid.Column="2" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            
+            <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="3" Grid.Column="3" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="4" Grid.Column="4" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="5" Grid.Column="5" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="6" Grid.Column="6" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="7" Grid.Column="7" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="8" Grid.Column="8" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="9" Grid.Column="9" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="10" Grid.Column="10" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="A" Grid.Row="1" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+            
+            <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="B" Grid.Row="2" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="3" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="C" Grid.Row="3" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="4" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="D" Grid.Row="4" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="5" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="E" Grid.Row="5" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="6" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="F" Grid.Row="6" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="7" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="G" Grid.Row="7" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="8" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="H" Grid.Row="8" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="9" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="I" Grid.Row="9" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="10" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="J" Grid.Row="10" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Name="oo" Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="otw" Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="oth" Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ofo" Grid.Row="1" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ofi" Grid.Row="1" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="osi" Grid.Row="1" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ose" Grid.Row="1" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="oe" Grid.Row="1" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="on" Grid.Row="1" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ote" Grid.Row="1" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="two" Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="twtw" Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="twth" Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="twfo" Grid.Row="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="twfi" Grid.Row="2" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="twsi" Grid.Row="2" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="twse" Grid.Row="2" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="twe" Grid.Row="2" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="twn" Grid.Row="2" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="twte" Grid.Row="2" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="tho" Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="thtw" Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="thth" Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="thfo" Grid.Row="3" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="thfi" Grid.Row="3" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="thsi" Grid.Row="3" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="thse" Grid.Row="3" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="the" Grid.Row="3" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="thn" Grid.Row="3" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="thte" Grid.Row="3" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="foo" Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fotw" Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="foth" Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fofo" Grid.Row="4" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fofi" Grid.Row="4" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fosi" Grid.Row="4" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fose" Grid.Row="4" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="foe" Grid.Row="4" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fon" Grid.Row="4" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fote" Grid.Row="4" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="fio" Grid.Row="5" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fitw" Grid.Row="5" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fith" Grid.Row="5" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fifo" Grid.Row="5" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fifi" Grid.Row="5" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fisi" Grid.Row="5" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fise" Grid.Row="5" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fie" Grid.Row="5" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fin" Grid.Row="5" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="fite" Grid.Row="5" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="sio" Grid.Row="6" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sitw" Grid.Row="6" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sith" Grid.Row="6" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sifo" Grid.Row="6" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sifi" Grid.Row="6" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sisi" Grid.Row="6" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sise" Grid.Row="6" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sie" Grid.Row="6" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sin" Grid.Row="6" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="site" Grid.Row="6" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="seo" Grid.Row="7" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="setw" Grid.Row="7" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="seth" Grid.Row="7" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sefo" Grid.Row="7" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sefi" Grid.Row="7" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sesi" Grid.Row="7" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sese" Grid.Row="7" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="see" Grid.Row="7" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sen" Grid.Row="7" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="sete" Grid.Row="7" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="eo" Grid.Row="8" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="etw" Grid.Row="8" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="eth" Grid.Row="8" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="efo" Grid.Row="8" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="efi" Grid.Row="8" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="esi" Grid.Row="8" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ese" Grid.Row="8" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ee" Grid.Row="8" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="en" Grid.Row="8" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ete" Grid.Row="8" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="no" Grid.Row="9" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ntw" Grid.Row="9" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="nth" Grid.Row="9" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="nfo" Grid.Row="9" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="nfi" Grid.Row="9" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="nsi" Grid.Row="9" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="nse" Grid.Row="9" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ne" Grid.Row="9" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="nn" Grid.Row="9" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="nte" Grid.Row="9" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="teo" Grid.Row="10" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tetw" Grid.Row="10" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="teth" Grid.Row="10" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tefo" Grid.Row="10" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tefi" Grid.Row="10" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tesi" Grid.Row="10" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tese" Grid.Row="10" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tee" Grid.Row="10" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ten" Grid.Row="10" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tete" Grid.Row="10" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+        </Grid>
+
+        <Grid Name="OceaniaBoard" Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="1" Grid.Column="1" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="2" Grid.Column="2" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="3" Grid.Column="3" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="4" Grid.Column="4" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="5" Grid.Column="5" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="6" Grid.Column="6" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="7" Grid.Column="7" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="8" Grid.Column="8" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="9" Grid.Column="9" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="0" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="10" Grid.Column="10" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="A" Grid.Row="1" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="B" Grid.Row="2" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="3" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="C" Grid.Row="3" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="4" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="D" Grid.Row="4" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="5" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="E" Grid.Row="5" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="6" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="F" Grid.Row="6" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="7" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="G" Grid.Row="7" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="8" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="H" Grid.Row="8" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="9" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="I" Grid.Row="9" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Grid.Row="10" Grid.Column="0" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="J" Grid.Row="10" FontSize="14" BorderBrush="Black" HorizontalAlignment="Center"/>
+
+            <Border Name="too" Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="totw" Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="toth" Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tofo" Grid.Row="1" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tofi" Grid.Row="1" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tosi" Grid.Row="1" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tose" Grid.Row="1" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="toe" Grid.Row="1" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ton" Grid.Row="1" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tote" Grid.Row="1" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="ttwo" Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttwtw" Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttwth" Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttwfo" Grid.Row="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttwfi" Grid.Row="2" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttwsi" Grid.Row="2" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttwse" Grid.Row="2" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttwe" Grid.Row="2" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttwn" Grid.Row="2" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttwte" Grid.Row="2" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="ttho" Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tthtw" Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tthth" Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tthfo" Grid.Row="3" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tthfi" Grid.Row="3" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tthsi" Grid.Row="3" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tthse" Grid.Row="3" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tthe" Grid.Row="3" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tthn" Grid.Row="3" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tthte" Grid.Row="3" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="tfoo" Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfotw" Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfoth" Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfofo" Grid.Row="4" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfofi" Grid.Row="4" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfosi" Grid.Row="4" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfose" Grid.Row="4" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfoe" Grid.Row="4" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfon" Grid.Row="4" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfote" Grid.Row="4" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="tfio" Grid.Row="5" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfitw" Grid.Row="5" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfith" Grid.Row="5" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfifo" Grid.Row="5" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfifi" Grid.Row="5" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfisi" Grid.Row="5" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfise" Grid.Row="5" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfie" Grid.Row="5" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfin" Grid.Row="5" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tfite" Grid.Row="5" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="tsio" Grid.Row="6" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsitw" Grid.Row="6" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsith" Grid.Row="6" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsifo" Grid.Row="6" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsifi" Grid.Row="6" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsisi" Grid.Row="6" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsise" Grid.Row="6" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsie" Grid.Row="6" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsin" Grid.Row="6" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsite" Grid.Row="6" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="tseo" Grid.Row="7" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsetw" Grid.Row="7" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tseth" Grid.Row="7" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsefo" Grid.Row="7" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsefi" Grid.Row="7" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsesi" Grid.Row="7" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsese" Grid.Row="7" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsee" Grid.Row="7" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsen" Grid.Row="7" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tsete" Grid.Row="7" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="tteo" Grid.Row="8" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttetw" Grid.Row="8" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tteth" Grid.Row="8" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttefo" Grid.Row="8" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttefi" Grid.Row="8" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttesi" Grid.Row="8" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttese" Grid.Row="8" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttee" Grid.Row="8" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tten" Grid.Row="8" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttete" Grid.Row="8" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="tno" Grid.Row="9" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tntw" Grid.Row="9" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tnth" Grid.Row="9" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tnfo" Grid.Row="9" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tnfi" Grid.Row="9" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tnsi" Grid.Row="9" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tnse" Grid.Row="9" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tne" Grid.Row="9" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tnn" Grid.Row="9" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tnte" Grid.Row="9" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+
+            <Border Name="ttteo" Grid.Row="10" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tttetw" Grid.Row="10" Grid.Column="2" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttteth" Grid.Row="10" Grid.Column="3" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tttefo" Grid.Row="10" Grid.Column="4" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tttefi" Grid.Row="10" Grid.Column="5" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tttesi" Grid.Row="10" Grid.Column="6" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tttese" Grid.Row="10" Grid.Column="7" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tttee" Grid.Row="10" Grid.Column="8" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="ttten" Grid.Row="10" Grid.Column="9" BorderBrush="Black" BorderThickness="1"/>
+            <Border Name="tttete" Grid.Row="10" Grid.Column="10" BorderBrush="Black" BorderThickness="1"/>
+        </Grid>
+    </Grid>
+
+</Window>
